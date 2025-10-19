@@ -1,5 +1,9 @@
 'use client';
 
+import Consultation from "./Consultation";
+
+
+
 export default function Contact() {
     return (
         <section className="bg-white">
@@ -70,17 +74,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div className="border-t border-gray-200 my-8"></div>
-
-                        {/* CTA Button */}
-                        <button className="inline-flex items-center gap-4 rounded-full bg-[#1445cc] text-white font-semibold px-8 py-4 shadow-[0_10px_30px_rgba(20,69,204,0.25)] hover:brightness-[0.95] transition-all">
-                            Let's Collaborate
-                            <span className="grid place-items-center rounded-full bg-[#FFB800] text-[#0e254f] size-9 shadow-[0_6px_16px_rgba(255,184,0,0.45)]">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </span>
-                        </button>
+                      
                     </div>
 
                     {/* Right Section - Google Map */}
@@ -99,6 +93,7 @@ export default function Contact() {
 
                 </div>
             </div>
+            <Consultation />
         </section>
     );
 }

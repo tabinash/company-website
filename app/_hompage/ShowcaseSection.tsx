@@ -14,44 +14,44 @@ type Industry = {
 const INDUSTRIES: Industry[] = [
   {
     id: 'travel',
-    title: 'TRAVEL & TOURISM',
-    subtitle: 'Seamless Journeys',
-    img: 'https://images.unsplash.com/photo-1503220317375-aaad61436b1b?q=80&w=1400&auto=format&fit=crop',
+    title: 'TRAVEL & HOSPITALITY',
+    subtitle: 'Seamless Guest Experiences',
+    img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1400&auto=format&fit=crop',
     theme: 'dark',
   },
   {
-    id: 'health',
-    title: 'HEALTHCARE',
-    subtitle: 'Smarter Care, Better Outcomes',
-    img: 'https://images.unsplash.com/photo-1581594693700-5fd4b9f0bde5?q=80&w=1400&auto=format&fit=crop',
+    id: 'publishing',
+    title: 'PUBLISHING & MEDIA',
+    subtitle: 'Digital Content Solutions',
+    img: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=1400&auto=format&fit=crop',
     theme: 'light',
   },
   {
-    id: 'logistics',
-    title: 'LOGISTICS & TRANSPORT',
-    subtitle: 'Optimized Logistics',
-    img: 'https://images.unsplash.com/photo-1561414927-6d86591d0c4f?q=80&w=1400&auto=format&fit=crop',
-    theme: 'dark',
-  },
-  {
-    id: 'banking',
-    title: 'BANKING & FINANCE',
-    subtitle: 'Secure. Reliable. Scalable',
-    img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1400&auto=format&fit=crop',
-    theme: 'light',
-  },
-  {
-    id: 'media',
-    title: 'MEDIA & ENTERTAINMENT',
-    subtitle: 'Improve Engagement',
-    img: 'https://images.unsplash.com/photo-1516924962500-2b4b3b73c6b1?q=80&w=1400&auto=format&fit=crop',
+    id: 'poultry',
+    title: 'POULTRY & LIVESTOCK',
+    subtitle: 'Smart Farm Management',
+    img: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1400&auto=format&fit=crop',
     theme: 'dark',
   },
   {
     id: 'retail',
     title: 'RETAIL & ECOMMERCE',
-    subtitle: 'Scalable Tech for Seamless Sales',
-    img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1400&auto=format&fit=crop',
+    subtitle: 'Scalable Sales Solutions',
+    img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1400&auto=format&fit=crop',
+    theme: 'light',
+  },
+  {
+    id: 'restaurant',
+    title: 'RESTAURANT & DINING',
+    subtitle: 'Modern Dining Technology',
+    img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop',
+    theme: 'dark',
+  },
+  {
+    id: 'automobile',
+    title: 'AUTOMOBILE',
+    subtitle: 'Connected Vehicle Systems',
+    img: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1400&auto=format&fit=crop',
     theme: 'light',
   },
 ];
@@ -74,11 +74,10 @@ export default function Industries() {
         <div className="flex flex-col sm:flex-row items-start justify-between gap-6">
           <div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
-              Industries We Cater to
+              Industries We Serve
             </h2>
             <p className="mt-3 max-w-3xl text-gray-600 text-base md:text-lg">
-              Get what you are looking for to fulfill your software development and outsourcing needs,
-              with our expertise on in‑demand technologies & platforms.
+              Delivering tailored software solutions across diverse industries with expertise in modern technologies and platforms.
             </p>
           </div>
 

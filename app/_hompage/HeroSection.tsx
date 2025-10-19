@@ -103,17 +103,17 @@ export default function HeroSection() {
                   {[...showcaseImages, ...showcaseImages].map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow group"
+                      className="relative rounded-2xl overflow-hidden  transition-shadow group"
                     >
                       <Image
                         src={img}
                         alt={`Project showcase ${idx + 1}`}
                         width={800}
                         height={600}
-                        className="w-full h-[350px] object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-[350px] object-cover  transition-transform duration-500"
                       />
                       {/* Overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent opacity-0  transition-opacity duration-300" />
                     </div>
                   ))}
                 </div>

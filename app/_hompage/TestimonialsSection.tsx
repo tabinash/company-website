@@ -1,63 +1,56 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import testi from "../../assets/testi.webp"
+import Image from 'next/image';
 
-// Testimonials sorted by review length (longest first)
 const testimonials = [
-  {
-    id: 2,
-    name: 'Kevin McIntosh',
-    website: 'www.powerautomedia.com',
-    image: '/testimonials/kevin-mcintosh.jpg',
-    rating: 5.0,
-    review:
-      'Excellent work! Extremely knowledgeable and professional. I plan on hiring them again for future WordPress and Magento projects.'
-  },
-  {
-    id: 4,
-    name: 'David Chen',
-    website: 'www.ecommerce-solutions.com',
-    image: '/testimonials/david-chen.jpg',
-    rating: 5.0,
-    review:
-      'Professional team with great attention to detail. They transformed our outdated website into a modern, user-friendly platform. Very satisfied with the results.'
-  },
-  {
-    id: 5,
-    name: 'Emily Rodriguez',
-    website: 'www.digitalmarketing.co',
-    image: '/testimonials/emily-rodriguez.jpg',
-    rating: 5.0,
-    review:
-      "Best development team I've worked with. They understood our vision perfectly and delivered beyond expectations. The communication throughout the project was excellent."
-  },
-  {
-    id: 6,
-    name: 'Michael Brown',
-    website: 'www.mobile-apps.dev',
-    image: '/testimonials/michael-brown.jpg',
-    rating: 5.0,
-    review:
-      'Exceptional quality and professionalism. They handled complex requirements with ease and provided valuable suggestions that improved valuable suggestions that improved our final product significantly.'
-  },
   {
     id: 1,
     name: 'Mark Simmons',
-    website: 'https://www.espn.com/',
-    image: '/testimonials/mark-simmons.jpg',
+    website: 'ESPN',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop',
     rating: 5.0,
-    review:
-      'Very hard-working company, and they were the best in price. They managed to finish a very challenging job that was quite complicated. Although there were many little bugs in the end product and it took a couple of days for us to find and correct them, they kept working to the end to rectify them. Overall, I am very happy with their service and will use them to develop it further.'
+    review: 'Very hard-working company with the best pricing. They managed to finish a very challenging job that was quite complicated. They kept working to rectify any issues. Overall, very happy with their service and will use them to develop further.'
+  },
+  {
+    id: 2,
+    name: 'Kevin McIntosh',
+    website: 'Power Auto Media',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop',
+    rating: 5.0,
+    review: 'Excellent work! Extremely knowledgeable and professional. I plan on hiring them again for future WordPress and Magento projects.'
   },
   {
     id: 3,
     name: 'Shamlul Mowla',
-    website: 'Prankdail & Ghostcall',
-    image: '/testimonials/shamlul-mowla.jpg',
+    website: 'Prankdial & Ghostcall',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop',
     rating: 5.0,
-    review:
-      'E-Signature is outstanding. Communication is exceptional with a talented group of project managers, business analysts, tech leads, designers, and programmers. They followed the Agile Scrum process with daily updates to keep me informed about the progress. I kept a close eye on the code committed, clean data structure, and organized code. Most recommended to everyone. Thanks'
+    review: 'Outstanding communication with a talented group of project managers, business analysts, tech leads, designers, and programmers. They followed Agile Scrum with daily updates. Clean code structure and organized approach. Most recommended.'
+  },
+  {
+    id: 4,
+    name: 'David Chen',
+    website: 'Ecommerce Solutions',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop',
+    rating: 5.0,
+    review: 'Professional team with great attention to detail. They transformed our outdated website into a modern, user-friendly platform. Very satisfied with the results.'
+  },
+  {
+    id: 5,
+    name: 'Emily Rodriguez',
+    website: 'Digital Marketing Co',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop',
+    rating: 5.0,
+    review: "Best development team I've worked with. They understood our vision perfectly and delivered beyond expectations. Communication throughout the project was excellent."
+  },
+  {
+    id: 6,
+    name: 'Michael Brown',
+    website: 'Mobile Apps Dev',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
+    rating: 5.0,
+    review: 'Exceptional quality and professionalism. They handled complex requirements with ease and provided valuable suggestions that significantly improved our final product.'
   }
 ];
 
@@ -75,7 +68,6 @@ export default function Testimonials() {
       const windowHeight = window.innerHeight;
       const scrollY = window.scrollY;
 
-      // Calculate progress when container is in view
       const startScroll = containerTop - windowHeight * 0.2;
       const endScroll = containerTop + containerHeight - windowHeight * 1.2;
       const progress = (scrollY - startScroll) / (endScroll - startScroll);
@@ -91,56 +83,81 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="relative"
+      className="relative bg-white"
       style={{ height: `${testimonials.length * 100}vh` }}
     >
-      {/* Sticky Container - This stays fixed on screen */}
-      <div className="sticky top-0 min-h-screen flex items-center py-16 px-6 md:px-12 lg:px-20">
-        <div className="w-full max-w-7xl mx-auto">
-          {/* Updated grid - Left takes less space, Right takes more */}
-          <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] xl:grid-cols-[400px_1fr] gap-8 lg:gap-12 items-start">
+      <div className="sticky top-0 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 lg:gap-16 items-center">
+            
+            {/* Left Header */}
+            <div>
+              <div className="inline-block mb-4">
+                <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFF7E9] to-[#FFE8B8] px-4 py-2 text-sm font-bold text-neutral-900 shadow-sm">
+                  <svg className="size-4 text-[#FFB800]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                  CLIENT TESTIMONIALS
+                </span>
+              </div>
 
-            {/* Left Section - Speech Bubble with Text - Compact */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="relative w-[380px] h-[380px] md:w-[350px] md:h-[380px] flex-shrink-0">
-                {/* Speech Bubble Image */}
-                <img
-                  src={testi.src}
-                  alt="Speech bubble background"
-                  className="w-full h-full object-contain bg-white"
-                />
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900 leading-tight">
+                Loved by businesses
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0c2a7a] via-[#0e36a2] to-[#1445cc] mt-2">
+                  worldwide
+                </span>
+              </h2>
 
-                {/* Quotation Marks */}
-                <div className="absolute top-7 left-12 text-[100px] text-black leading-none font-serif">
-                  &ldquo;
+              <p className="mt-4 text-gray-600 text-base md:text-lg leading-relaxed">
+                Join hundreds of satisfied clients who trust us to deliver exceptional software solutions.
+              </p>
+
+              {/* Stats */}
+              <div className="mt-8 grid grid-cols-3 gap-6">
+                <div>
+                  <div className="text-2xl md:text-3xl font-extrabold text-neutral-900">500+</div>
+                  <div className="text-sm text-gray-600 mt-1">Happy Clients</div>
                 </div>
-                <div className="absolute bottom-15 right-11 text-[100px] text-black leading-none font-serif rotate-180">
-                  &rdquo;
+                <div>
+                  <div className="text-2xl md:text-3xl font-extrabold text-neutral-900">4.9★</div>
+                  <div className="text-sm text-gray-600 mt-1">Average Rating</div>
                 </div>
+                <div>
+                  <div className="text-2xl md:text-3xl font-extrabold text-neutral-900">97%</div>
+                  <div className="text-sm text-gray-600 mt-1">Satisfaction</div>
+                </div>
+              </div>
 
-                {/* Text Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                  <h2 className="text-xl md:text-2xl font-medium text-gray-900">
-                    What <span className="text-[#1748c5] text-4xl">our clients</span> <br />
-                    <span className="font-medium text-gray-800">say about us</span>
-                  </h2>
+              {/* Client Avatars */}
+              <div className="mt-8 flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {testimonials.slice(0, 5).map((t) => (
+                    <div key={t.id} className="relative size-10 rounded-full overflow-hidden ring-4 ring-white shadow-sm">
+                      <Image
+                        src={t.image}
+                        alt={t.name}
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="text-sm text-gray-600">
+                  and many more...
                 </div>
               </div>
             </div>
 
-            {/* Right Section - Expanded Stacking Cards */}
-            <div className="relative h-[500px] flex items-center w-full">
-              <div className="relative w-full h-[450px] max-w-2xl mx-auto lg:mx-0">
+            {/* Right Stacking Cards */}
+            <div className="relative h-[500px] flex items-center">
+              <div className="relative w-full h-[460px] max-w-2xl">
                 {testimonials.map((testimonial, index) => {
-                  // First card (index 0) is always visible from start
-                  // Other cards appear progressively
                   let cardProgress;
 
                   if (index === 0) {
-                    // First card is always fully visible
                     cardProgress = 1;
                   } else {
-                    // Other cards appear based on scroll with easing
                     const adjustedIndex = index - 1;
                     const totalCards = testimonials.length - 1;
                     const cardStart = adjustedIndex / totalCards;
@@ -148,92 +165,86 @@ export default function Testimonials() {
                     const rawProgress = Math.max(0, Math.min(1,
                       (scrollProgress - cardStart) / (cardEnd - cardStart)
                     ));
-
-                    // Apply easing for smoother animation (ease-out cubic)
                     cardProgress = 1 - Math.pow(1 - rawProgress, 3);
                   }
 
-                  // Translate from bottom (100%) to stacked position
-                  const translateY = (1 - cardProgress) * 120;
-
-                  // Scale effect
-                  const scale = 0.85 + cardProgress * 0.15;
-
-                  // Stack offset - cards stack with offset
-                  const stackOffset = index * 20;
-
-                  // Opacity
+                  const translateY = (1 - cardProgress) * 100;
+                  const scale = 0.90 + cardProgress * 0.10;
+                  const stackOffset = index * 14;
                   const opacity = Math.min(1, cardProgress * 2);
-
-                  // Rotation for entering effect
-                  const rotation = (1 - cardProgress) * 2;
 
                   return (
                     <div
                       key={testimonial.id}
-                      className="absolute inset-0 transition-all duration-700 ease-out will-change-transform  "
+                      className="absolute inset-0 transition-all duration-500 ease-out"
                       style={{
-                        transform: `translateY(calc(${stackOffset}px + ${translateY}%)) scale(${scale}) rotate(${rotation}deg)`,
+                        transform: `translateY(calc(${stackOffset}px + ${translateY}%)) scale(${scale})`,
                         opacity: opacity,
                         zIndex: index,
                       }}
                     >
-                      <div className="bg-white border border-gray-200 rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow h-auto">
-                        {/* Content Section */}
-                        <div className="flex items-start gap-4 lg:gap-6 mb-4 lg:mb-6">
-                          {/* Profile Image */}
-                          <div className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                            <span className="text-white text-xl lg:text-2xl font-bold">
-                              {testimonial.name.split(' ').map(n => n[0]).join('')}
-                            </span>
+                      <article className="bg-gray-50 rounded-2xl p-6 md:p-7 shadow-lg hover:shadow-xl transition-shadow group relative overflow-hidden">
+                        {/* Subtle corner accent */}
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FFB800]/10 to-transparent rounded-bl-[80px]" />
+
+                        {/* Header with profile */}
+                        <div className="relative flex items-start gap-4 mb-5">
+                          <div className="relative size-12 rounded-full overflow-hidden ring-2 ring-white shadow-sm flex-shrink-0">
+                            <Image
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              fill
+                              sizes="48px"
+                              className="object-cover"
+                            />
                           </div>
 
-                          {/* Review Text */}
-                          <div className="flex-1">
-                            <p className="text-gray-700 text-justify leading-relaxed text-sm lg:text-base">
-                              {testimonial.review}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Divider Line */}
-                        <div className="border-t border-blue-600 w-2/3 mb-3 lg:mb-4"></div>
-
-                        {/* Bottom Info */}
-                        <div className="flex items-center justify-between">
-                          <div>
-                            {/* Rating Stars */}
-                            <div className="flex items-center gap-1 mb-2">
-                              {[...Array(5)].map((_, i) => (
-                                <svg
-                                  key={i}
-                                  className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600 fill-current"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>
-                              ))}
-                              <span className="text-base lg:text-lg font-semibold ml-2">{testimonial.rating}</span>
-                            </div>
-
-                            {/* Name */}
-                            <h3 className="text-base lg:text-lg font-bold text-blue-600">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-base font-bold text-neutral-900">
                               {testimonial.name}
                             </h3>
-
-                            {/* Website */}
-                            <p className="text-xs lg:text-sm text-gray-600 italic">
+                            <p className="text-sm text-gray-600">
                               {testimonial.website}
                             </p>
                           </div>
+
+                          {/* Stars */}
+                          <div className="flex items-center gap-0.5 flex-shrink-0">
+                            {[...Array(5)].map((_, i) => (
+                              <svg key={i} className="size-4 text-[#FFB800] fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                              </svg>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+
+                        {/* Quote */}
+                        <div className="text-[#FFB800] text-3xl leading-none font-serif opacity-25 mb-3">
+                          ❝
+                        </div>
+
+                        {/* Review */}
+                        <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                          {testimonial.review}
+                        </p>
+
+                        {/* Hover ring */}
+                        <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-neutral-300 transition pointer-events-none" />
+                      </article>
                     </div>
                   );
                 })}
               </div>
             </div>
 
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 animate-bounce">
+            <span className="text-xs font-semibold uppercase tracking-wider">Scroll Down</span>
+            <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
       </div>

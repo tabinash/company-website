@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Smartphone, Globe, TrendingUp } from 'lucide-react';
+import Image from 'next/image';
+import { Smartphone, Globe, Lightbulb, Users, Building2 } from 'lucide-react';
 
 type Service = {
   id: number;
@@ -17,24 +18,35 @@ const SERVICES: Service[] = [
     title: 'Mobile App Design & Development',
     icon: <Smartphone className="w-5 h-5" />,
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1400&auto=format&fit=crop',
-    description: 'Native & cross-platform mobile apps built with performance and user experience at the core.',
-   
+    description: 'Native & cross-platform mobile apps built with performance and user experience at the core. From iOS and Android to Flutter and React Native solutions.',
   },
   {
     id: 2,
     title: 'Web Design (UI/UX) & Development',
     icon: <Globe className="w-5 h-5" />,
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop',
-    description: 'Modern, responsive websites and web applications that convert visitors into customers.',
-   
+    description: 'Modern, responsive websites and web applications that convert visitors into customers. Built with the latest technologies for speed and scalability.',
   },
   {
     id: 3,
-    title: 'Digital Marketing',
-    icon: <TrendingUp className="w-5 h-5" />,
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop',
-    description: 'Data-driven strategies to grow your online presence and reach your target audience effectively.',
-   
+    title: 'Digital Transformation',
+    icon: <Lightbulb className="w-5 h-5" />,
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1400&auto=format&fit=crop',
+    description: 'Transform your business with digital solutions. We help organizations modernize operations, improve efficiency, and leverage technology for growth.',
+  },
+  {
+    id: 4,
+    title: 'IT Consulting',
+    icon: <Users className="w-5 h-5" />,
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop',
+    description: 'Expert guidance on technology strategy, architecture decisions, and implementation planning. We help you make informed IT decisions aligned with business goals.',
+  },
+  {
+    id: 5,
+    title: 'Enterprise Software Solutions',
+    icon: <Building2 className="w-5 h-5" />,
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1400&auto=format&fit=crop',
+    description: 'Custom enterprise software tailored to your organization\'s needs. From CRM and ERP systems to workflow automation and business intelligence solutions.',
   },
 ];
 
@@ -76,22 +88,27 @@ export default function Services() {
 
           {/* Right: Visual Display */}
           <div className="hidden lg:block sticky top-8 h-fit">
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg">
-              <div className="relative h-[450px]">
-                <img
+            <div className="relative rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-[500px]">
+                <Image
                   src={activeService ? activeService.image : 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1400&auto=format&fit=crop'}
                   alt={activeService ? activeService.title : 'Our Services'}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 via-neutral-900/20 to-transparent" />
                 {activeService && (
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="grid place-items-center rounded-full bg-white/20 backdrop-blur-sm size-10">
+                      <span className="grid place-items-center rounded-full bg-[#FFB800] text-neutral-900 size-12 shadow-lg">
                         {activeService.icon}
                       </span>
-                      <h3 className="text-xl font-bold">{activeService.title}</h3>
+                      <h3 className="text-2xl font-bold">{activeService.title}</h3>
                     </div>
+                    <p className="text-white/90 text-sm">
+                      {activeService.description}
+                    </p>
                   </div>
                 )}
               </div>
@@ -116,7 +133,7 @@ function ServiceCard({
     <div 
       className={`rounded-2xl border-2 transition-all duration-300 ${
         isExpanded 
-          ? 'border-blue-300 shadow-lg bg-white' 
+          ? 'border-[#FFB800] shadow-lg bg-white' 
           : 'border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-md'
       }`}
     >
@@ -128,17 +145,21 @@ function ServiceCard({
       >
         <div className="flex items-center gap-3">
           <span className={`grid place-items-center rounded-full size-9 md:size-10 transition-colors ${
-            isExpanded ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+            isExpanded 
+              ? 'bg-[#FFB800] text-neutral-900' 
+              : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
           }`}>
             {service.icon}
           </span>
-          <h3 className="text-base md:text-lg font-semibold text-neutral-900">
+          <h3 className="text-base md:textsm font-semibold text-neutral-900">
             {service.title}
           </h3>
         </div>
         
         <div className={`grid place-items-center rounded-full size-7 transition-all ${
-          isExpanded ? 'bg-blue-600 text-white rotate-45' : 'bg-gray-200 text-gray-600'
+          isExpanded 
+            ? 'bg-[#FFB800] text-neutral-900 rotate-45' 
+            : 'bg-gray-200 text-gray-600'
         }`}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
             <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -153,11 +174,9 @@ function ServiceCard({
         }`}
       >
         <div className="px-4 md:px-5 pb-5 pt-1 border-t border-gray-100">
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+          <p className="text-gray-600 text-sm md:text-sm leading-relaxed">
             {service.description}
           </p>
-          
-         
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import logo from "../assets/logo.png"
 
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -10,18 +12,11 @@ const Header = () => {
   const closeTimer = useRef<number | null>(null);
 
   const servicesLinks = [
+    { href: '/services/mobile-app-development', label: 'Mobile App Development', desc: 'Native & cross-platform apps' },
     { href: '/services/web-development', label: 'Web Development', desc: 'Modern websites & web apps' },
-    { href: '/services/mobile-app-development', label: 'Mobile Apps', desc: 'iOS & Android development' },
-    { href: '/services/ui-ux', label: 'UI/UX Design', desc: 'Product & interface design' },
-    { href: '/services/cloud', label: 'Cloud & DevOps', desc: 'Infrastructure & deployment' },
-    { href: '/services/ecommerce', label: 'Ecommerce', desc: 'Online stores & solutions' },
-    { href: '/services/staff-leasing', label: 'Staff Leasing', desc: 'Dedicated team members' },
-  ];
-
-  const aboutLinks = [
-    { href: '/about', label: 'Our Story', desc: 'Mission & values' },
-    { href: '/team', label: 'Our Team', desc: 'Meet the experts' },
-    { href: '/careers', label: 'Careers', desc: 'Join our team' },
+    { href: '/services/digital-transformation', label: 'Digital Transformation', desc: 'Modernize your business' },
+    { href: '/services/it-consulting', label: 'IT Consulting', desc: 'Expert technology guidance' },
+    { href: '/services/enterprise-solutions', label: 'Enterprise Solutions', desc: 'Custom business software' },
   ];
 
   // Hover intent helpers
@@ -41,12 +36,17 @@ const Header = () => {
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          
+
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <span className="text-2xl lg:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#0c2a7a] to-[#1445cc] group-hover:from-[#1445cc] group-hover:to-[#0c2a7a] transition-all duration-300">
-              E-Signature
-            </span>
+            <Image
+              src={logo}
+              alt="E-Signature Logo"
+              width={150}
+              height={35}
+              className="scale-130 object-cover transition-transform duration-500"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -75,15 +75,13 @@ const Header = () => {
               >
                 <span>Services</span>
                 <ChevronDown
-                  className={`size-4 transition-transform duration-300 ${
-                    activeDropdown === 'services' ? 'rotate-180' : ''
-                  }`}
+                  className={`size-4 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`}
                 />
               </button>
 
-              {/* Invisible bridge to cover the gap under trigger */}
+              {/* Invisible bridge */}
               <div
-                className={`absolute left-0 top-full w-[420px] h-3`}
+                className="absolute left-0 top-full w-[460px] h-3"
                 onMouseEnter={cancelClose}
                 onMouseLeave={scheduleClose}
                 aria-hidden
@@ -93,95 +91,57 @@ const Header = () => {
                 id="services-menu"
                 onMouseEnter={cancelClose}
                 onMouseLeave={scheduleClose}
-                className={`absolute top-full left-0 mt-3 w-[420px] bg-white shadow-xl rounded-2xl border border-gray-200 p-4 transition-all duration-200 ${
+                className={`absolute top-full left-0 mt-3 w-[460px] bg-white shadow-xl rounded-2xl border border-gray-200 p-4 transition-all duration-200 ${
                   activeDropdown === 'services'
                     ? 'opacity-100 visible translate-y-0'
                     : 'opacity-0 invisible -translate-y-2 pointer-events-none'
                 }`}
                 role="menu"
               >
-                <div className="grid grid-cols-2 gap-2">
+                <div className="space-y-1">
                   {servicesLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-3 rounded-xl hover:bg-gray-50 transition group"
+                      className="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 transition group"
                     >
-                      <div className="font-bold text-sm text-neutral-900 group-hover:text-[#0c2a7a] transition">
-                        {link.label}
+                      <div className="flex-1">
+                        <div className="font-bold text-sm text-neutral-900 group-hover:text-[#0c2a7a] transition">
+                          {link.label}
+                        </div>
+                        <div className="text-xs text-gray-600 mt-0.5">
+                          {link.desc}
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-600 mt-0.5">
-                        {link.desc}
-                      </div>
+                      <ArrowRight className="size-4 text-gray-400 group-hover:text-[#FFB800] transition mt-0.5" />
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* About Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => openMenu('about')}
-              onMouseLeave={scheduleClose}
-              onFocus={() => openMenu('about')}
-              onBlur={scheduleClose}
+            {/* About - Direct Link */}
+            <Link
+              href="/about"
+              className="text-sm font-semibold text-gray-700 hover:text-neutral-900 transition relative group"
             >
-              <button
-                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-neutral-900 transition"
-                aria-haspopup="true"
-                aria-expanded={activeDropdown === 'about'}
-                aria-controls="about-menu"
-              >
-                <span>About</span>
-                <ChevronDown
-                  className={`size-4 transition-transform duration-300 ${
-                    activeDropdown === 'about' ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-
-              {/* Bridge for About menu */}
-              <div
-                className="absolute left-0 top-full w-64 h-3"
-                onMouseEnter={cancelClose}
-                onMouseLeave={scheduleClose}
-                aria-hidden
-              />
-
-              <div
-                id="about-menu"
-                onMouseEnter={cancelClose}
-                onMouseLeave={scheduleClose}
-                className={`absolute top-full left-0 mt-3 w-64 bg-white shadow-xl rounded-2xl border border-gray-200 p-3 transition-all duration-200 ${
-                  activeDropdown === 'about'
-                    ? 'opacity-100 visible translate-y-0'
-                    : 'opacity-0 invisible -translate-y-2 pointer-events-none'
-                }`}
-                role="menu"
-              >
-                {aboutLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block px-4 py-3 rounded-xl hover:bg-gray-50 transition group"
-                  >
-                    <div className="font-bold text-sm text-neutral-900 group-hover:text-[#0c2a7a] transition">
-                      {link.label}
-                    </div>
-                    <div className="text-xs text-gray-600 mt-0.5">
-                      {link.desc}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+              About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFB800] transition-all duration-300 group-hover:w-full" />
+            </Link>
 
             <Link
               href="/portfolio"
               className="text-sm font-semibold text-gray-700 hover:text-neutral-900 transition relative group"
             >
               Portfolio
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFB800] transition-all duration-300 group-hover:w-full" />
+            </Link>
+
+            <Link
+              href="/demo"
+              className="text-sm font-semibold text-gray-700 hover:text-neutral-900 transition relative group"
+            >
+              Demo
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFB800] transition-all duration-300 group-hover:w-full" />
             </Link>
 
@@ -248,9 +208,7 @@ const Header = () => {
               >
                 Services
                 <ChevronDown
-                  className={`size-4 transition-transform ${
-                    activeDropdown === 'services' ? 'rotate-180' : ''
-                  }`}
+                  className={`size-4 transition-transform ${activeDropdown === 'services' ? 'rotate-180' : ''}`}
                 />
               </button>
               {activeDropdown === 'services' && (
@@ -269,34 +227,14 @@ const Header = () => {
               )}
             </div>
 
-            {/* Mobile About */}
-            <div>
-              <button
-                onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition"
-              >
-                About
-                <ChevronDown
-                  className={`size-4 transition-transform ${
-                    activeDropdown === 'about' ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {activeDropdown === 'about' && (
-                <div className="ml-4 mt-1 space-y-1">
-                  {aboutLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* About - Direct Link */}
+            <Link
+              href="/about"
+              className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </Link>
 
             <Link
               href="/portfolio"
@@ -304,6 +242,14 @@ const Header = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Portfolio
+            </Link>
+
+            <Link
+              href="/demo"
+              className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Demo
             </Link>
 
             <Link

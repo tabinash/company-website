@@ -15,7 +15,7 @@ const page = () => {
       <HeroSection />
       <EliminateITChallengesSection />
       <ServicesSection />
-      <WhyChooseUsSection />
+      {/* <WhyChooseUsSection /> */}
   <CTASection />
       <ShowcaseSection />
       <FAQ />
