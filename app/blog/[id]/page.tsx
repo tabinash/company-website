@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Clock, Tag, ArrowLeft, Share2, Bookmark, Facebook, Twitter, Linkedin, Link2, Mail } from 'lucide-react';
+import { Calendar, Clock, Tag, ArrowLeft, Share2, Bookmark, Facebook, Twitter, Linkedin, Link2 } from 'lucide-react';
 
 // Sample blog post data - you'll replace this with dynamic data
 const blogPost = {
@@ -44,36 +44,6 @@ const relatedPosts = [
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&auto=format&fit=crop&q=80',
     category: 'Mobile',
     readTime: '7 min read'
-  }
-];
-
-const leadership = [
-  {
-    id: 1,
-    name: 'Brijesh Gupta',
-    role: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80',
-    bio: 'Visionary leader with 15+ years of experience building world-class software products and teams.',
-    linkedin: 'https://linkedin.com',
-    email: 'brijesh@company.com'
-  },
-  {
-    id: 2,
-    name: 'Sarah Chen',
-    role: 'CTO',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&auto=format&fit=crop&q=80',
-    bio: 'Tech innovator specializing in scalable architectures and cutting-edge development practices.',
-    linkedin: 'https://linkedin.com',
-    email: 'sarah@company.com'
-  },
-  {
-    id: 3,
-    name: 'Michael Roberts',
-    role: 'VP of Engineering',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80',
-    bio: 'Engineering leader passionate about building high-performing teams and quality software.',
-    linkedin: 'https://linkedin.com',
-    email: 'michael@company.com'
   }
 ];
 
@@ -383,72 +353,6 @@ export default function BlogDetailPage() {
           </div>
         </div>
       </section>
-            {/* Leadership Section */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
-          <div className="mb-10">
-            <div className="inline-block mb-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FFF7E9] to-[#FFE8B8] px-4 py-2 text-sm font-bold text-neutral-900 shadow-sm">
-                LEADERSHIP
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
-              Our Leadership Team
-            </h2>
-            <p className="mt-3 text-gray-600 text-base md:text-lg max-w-3xl">
-              Experienced leaders driving innovation and excellence across the organization
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {leadership.map((member) => (
-              <LeadershipCard key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
-  );
-}
-
-
-function LeadershipCard({ member }: { member: typeof leadership[0] }) {
-  return (
-    <article className="rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow overflow-hidden group">
-      <div className="relative h-[280px] overflow-hidden">
-        <Image
-          src={member.image}
-          alt={member.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-      </div>
-
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-neutral-900">{member.name}</h3>
-        <p className="text-sm text-[#0e36a2] font-semibold mt-1">{member.role}</p>
-        <p className="mt-3 text-sm text-gray-700 leading-relaxed">{member.bio}</p>
-
-        {/* Social Links */}
-        <div className="mt-4 flex items-center gap-2">
-          <a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="grid place-items-center size-9 rounded-lg bg-gray-100 hover:bg-[#0A66C2] text-gray-700 hover:text-white transition"
-          >
-            <Linkedin className="size-4" />
-          </a>
-          <a
-            href={`mailto:${member.email}`}
-            className="grid place-items-center size-9 rounded-lg bg-gray-100 hover:bg-neutral-900 text-gray-700 hover:text-white transition"
-          >
-            <Mail className="size-4" />
-          </a>
-        </div>
-      </div>
-    </article>
   );
 }

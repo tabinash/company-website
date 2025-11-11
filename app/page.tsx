@@ -8,6 +8,7 @@ import TestimonialsSection from './_hompage/TestimonialsSection'
 import ShowcaseSection from './_hompage/ShowcaseSection'
 import BlogSection from './_hompage/BlogSection'
 import FAQ from './_hompage/FAQ'
+import FinalCTA from './_hompage/FinalCTA'
 
 const page = () => {
   return (
@@ -16,11 +17,12 @@ const page = () => {
       <EliminateITChallengesSection />
       <ServicesSection />
       {/* <WhyChooseUsSection /> */}
-  <CTASection />
+      <CTASection />
       <ShowcaseSection />
       <FAQ />
       <TestimonialsSection />
-    <BlogSection />
+      <BlogSection />
+      {/* <FinalCTA /> */}
     </div>
   )
 }

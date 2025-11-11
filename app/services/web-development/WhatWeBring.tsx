@@ -4,24 +4,24 @@ type Item = { title: string; desc: string };
 
 const ITEMS: Item[] = [
   {
-    title: 'Team with Experience and Expertise',
+    title: 'Modern Tech Stack',
     desc:
-      'We have been in this field since 2008. Our seasoned web developers have experience.',
+      'We build with React, Next.js, Node.js, and TypeScript—proven technologies that deliver fast, maintainable, and scalable web applications.',
   },
   {
-    title: 'Proven Track Record',
+    title: 'Responsive Design',
     desc:
-      'Our track record speaks for itself. We have about 27% of recurring and recommended customers,',
+      'Every website we create works seamlessly across desktop, tablet, and mobile devices, ensuring your users have a great experience everywhere.',
   },
   {
-    title: 'Exceptional Customer Service',
+    title: 'Performance Optimized',
     desc:
-      'We are working for our customers, so it only makes sense to develop a website.',
+      'Fast loading times matter. We optimize images, code, and architecture to deliver websites that load quickly and rank well in search engines.',
   },
   {
-    title: 'Brand Alignment',
+    title: 'Clean, Maintainable Code',
     desc:
-      "Whether you are an established business or just started, E‑Signature's team of UI/UX.",
+      'We write organized, well-documented code that makes future updates and feature additions straightforward, saving you time and money long-term.',
   },
 ];
 
@@ -31,7 +31,7 @@ export default function WhatWeBring() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
         {/* Heading */}
         <h2 className="text-center text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
-          What <span className="text-[#1445cc]">We Bring</span> To The Table?
+          What We Bring to Your <span className="text-[#1445cc]">Web Project</span>
         </h2>
 
         {/* Grid */}

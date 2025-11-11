@@ -63,19 +63,19 @@ export default function Services() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
         {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
             Services to Grow Your Business
           </h2>
-          <p className="mt-3 max-w-3xl text-gray-600 text-base md:text-lg">
+          <p className="mt-2 sm:mt-3 max-w-3xl text-gray-600 text-sm sm:text-base md:text-lg">
             We design and build conversion-focused web and mobile products that help businesses scale and succeed.
           </p>
         </div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
           {/* Left: Service Cards */}
-          <div className="space-y-3">
+          <div className="space-y-2.5 sm:space-y-3">
             {SERVICES.map((service) => (
               <ServiceCard
                 key={service.id}
@@ -140,41 +140,41 @@ function ServiceCard({
       {/* Header Button */}
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-4 md:p-5 text-left group"
+        className="w-full flex items-center justify-between p-3.5 sm:p-4 md:p-5 text-left group"
         aria-expanded={isExpanded}
       >
-        <div className="flex items-center gap-3">
-          <span className={`grid place-items-center rounded-full size-9 md:size-10 transition-colors ${
-            isExpanded 
-              ? 'bg-[#FFB800] text-neutral-900' 
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <span className={`grid place-items-center rounded-full size-8 sm:size-9 md:size-10 transition-colors ${
+            isExpanded
+              ? 'bg-[#FFB800] text-neutral-900'
               : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
           }`}>
             {service.icon}
           </span>
-          <h3 className="text-base md:textsm font-semibold text-neutral-900">
+          <h3 className="text-sm sm:text-base font-semibold text-neutral-900">
             {service.title}
           </h3>
         </div>
-        
-        <div className={`grid place-items-center rounded-full size-7 transition-all ${
-          isExpanded 
-            ? 'bg-[#FFB800] text-neutral-900 rotate-45' 
+
+        <div className={`grid place-items-center rounded-full size-6 sm:size-7 transition-all flex-shrink-0 ${
+          isExpanded
+            ? 'bg-[#FFB800] text-neutral-900 rotate-45'
             : 'bg-gray-200 text-gray-600'
         }`}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
             <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </div>
       </button>
 
       {/* Expanded Content */}
-      <div 
+      <div
         className={`overflow-hidden transition-all duration-300 ${
           isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 md:px-5 pb-5 pt-1 border-t border-gray-100">
-          <p className="text-gray-600 text-sm md:text-sm leading-relaxed">
+        <div className="px-3.5 sm:px-4 md:px-5 pb-4 sm:pb-5 pt-1 border-t border-gray-100">
+          <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
             {service.description}
           </p>
         </div>

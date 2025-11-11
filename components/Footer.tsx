@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Left - Brand & Description */}
           <div className="lg:col-span-4">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
-              E-Signature
+              Sphiron Tech
             </h2>
             <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6">
               Building innovative digital solutions for businesses across Nepal and beyond. Transform your ideas into reality with our expert team.

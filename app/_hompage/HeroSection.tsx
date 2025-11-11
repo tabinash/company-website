@@ -11,7 +11,12 @@ const techStack = [
   { name: 'AWS', color: '#FF9900' },
   { name: 'Docker', color: '#2496ED' },
   { name: 'Flutter', color: '#02569B' },
-  { name: 'TypeScript', color: '#3178C6' }
+  { name: 'TypeScript', color: '#3178C6' },
+  { name: 'MongoDB', color: '#E10098' },
+  { name: 'MySQL', color: '#00758F' },
+  { name: 'PostgreSQL', color: '#336791' },
+  { name: 'React Native', color: '#61DAFB' },
+  { name: 'Spring Boot', color: '#6DB33F' }
 ];
 
 const showcaseImages = [
@@ -27,8 +32,8 @@ export default function HeroSection() {
     <section className="relative bg-white overflow-hidden">
       {/* Decorative background elements */}
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-8 md:py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left Content */}
           <div className="space-y-8 relative z-10">
@@ -91,7 +96,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content - Scrolling Showcase */}
-<div className="hidden md:flex relative h-[500px] md:h-[600px] items-center justify-center lg:justify-end">
+<div className="relative h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center lg:justify-end">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#0e36a2]/5 via-transparent to-[#FFB800]/5 rounded-3xl" />
 
@@ -99,32 +104,32 @@ export default function HeroSection() {
             <div className="relative w-full max-w-md h-full">
               <div className="relative h-full overflow-hidden rounded-2xl">
                 {/* Scrolling images */}
-                <div className="animate-scroll-vertical space-y-6">
+                <div className="animate-scroll-vertical space-y-4 sm:space-y-6">
                   {[...showcaseImages, ...showcaseImages].map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative rounded-2xl overflow-hidden  transition-shadow group"
+                      className="relative rounded-xl sm:rounded-2xl overflow-hidden transition-shadow group"
                     >
                       <Image
                         src={img}
                         alt={`Project showcase ${idx + 1}`}
                         width={800}
                         height={600}
-                        className="w-full h-[350px] object-cover  transition-transform duration-500"
+                        className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover transition-transform duration-500"
                       />
                       {/* Overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent opacity-0  transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent opacity-0 transition-opacity duration-300" />
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Gradient overlays for fade effect */}
-              {/* <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-10 pointer-events-none" /> */}
-              {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10 pointer-events-none" /> */}
+              <div className="absolute top-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10 pointer-events-none" />
             </div>
 
-       
+
           </div>
         </div>
       </div>
