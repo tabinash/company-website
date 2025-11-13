@@ -13,34 +13,33 @@ import {
 } from 'lucide-react';
 
 const services = [
-  { label: 'Mobile Application', href: '/services/mobile' },
-  { label: 'Website Development', href: '/services/web' },
-  { label: 'Staff Leasing', href: '/services/staff-leasing' },
-  { label: 'Digital Marketing', href: '/services/marketing' },
-  { label: 'UI/UX Design', href: '/services/design' },
-  { label: 'Ecommerce Solutions', href: '/services/ecommerce' }
+  { label: 'Mobile App Development', href: '/services/mobile-app-development' },
+  { label: 'Web Development', href: '/services/web-development' },
+  { label: 'Digital Transformation', href: '/services/digital-transformation' },
+  { label: 'IT Consulting', href: '/services/it-consulting' },
+  { label: 'Enterprise Solutions', href: '/services/enterprise-solutions' }
 ];
 
 const quickLinks = {
   company: [
     { label: 'About Us', href: '/about' },
-    { label: 'Our Team', href: '/team' },
-    { label: 'Careers', href: '/careers' },
+    // { label: 'Our Company', href: '/our-company' },
+    // { label: 'Careers', href: '/careers' },
     { label: 'Portfolio', href: '/portfolio' }
   ],
   resources: [
     { label: 'Blog', href: '/blog' },
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'FAQs', href: '/faq' },
+    // { label: 'Testimonials', href: '/testimonials' },
+    { label: 'Demo', href: '/demo' },
     { label: 'Contact', href: '/contact' }
   ]
 };
 
 const socialLinks = [
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
+  { icon: Facebook, href: '#', label: 'Facebook' },
+  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Youtube, href: '#', label: 'YouTube' },
   { icon: MessageCircle, href: 'https://wa.me/9779851195578', label: 'WhatsApp' }
 ];
 
@@ -158,7 +157,7 @@ export default function Footer() {
         </div>
 
         {/* Links Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 pb-10 border-b border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10 pb-10 border-b border-white/10">
           <div>
             <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
               Company
@@ -166,8 +165,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {quickLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-sm text-white/70 hover:text-white transition"
                   >
                     {link.label}
@@ -184,8 +183,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {quickLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-sm text-white/70 hover:text-white transition"
                   >
                     {link.label}
@@ -197,41 +196,35 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
-              Industries
+              Services
             </h3>
             <ul className="space-y-2.5">
-              <li><Link href="/industries/healthcare" className="text-sm text-white/70 hover:text-white transition">Healthcare</Link></li>
-              <li><Link href="/industries/travel" className="text-sm text-white/70 hover:text-white transition">Travel & Tourism</Link></li>
-              <li><Link href="/industries/finance" className="text-sm text-white/70 hover:text-white transition">Banking & Finance</Link></li>
-              <li><Link href="/industries/retail" className="text-sm text-white/70 hover:text-white transition">Retail & Ecommerce</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
-              Support
-            </h3>
-            <ul className="space-y-2.5">
-              <li><Link href="/support" className="text-sm text-white/70 hover:text-white transition">Help Center</Link></li>
-              <li><Link href="/privacy" className="text-sm text-white/70 hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-sm text-white/70 hover:text-white transition">Terms of Service</Link></li>
-              <li><Link href="/sitemap" className="text-sm text-white/70 hover:text-white transition">Sitemap</Link></li>
+              {services.slice(0, 4).map((service) => (
+                <li key={service.label}>
+                  <Link
+                    href={service.href}
+                    className="text-sm text-white/70 hover:text-white transition"
+                  >
+                    {service.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
-          <p>© 2025 E-Signature Pvt. Ltd. All rights reserved.</p>
+          <p>© 2025 Sphiron Tech. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-white transition">
-              Privacy
+            <Link href="/about" className="hover:text-white transition">
+              About
             </Link>
-            <Link href="/terms" className="hover:text-white transition">
-              Terms
+            <Link href="/contact" className="hover:text-white transition">
+              Contact
             </Link>
-            <Link href="/cookies" className="hover:text-white transition">
-              Cookies
+            <Link href="/careers" className="hover:text-white transition">
+              Careers
             </Link>
           </div>
         </div>

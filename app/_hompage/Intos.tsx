@@ -1,6 +1,6 @@
 'use client';
 
-import backgroundimg from "@/assets/200505_tech.jpg"
+import backgroundimg from "@/assets/images.jpg"
 
 const LEFT_BULLETS = [
   "Crafting Innovative Digital Solutions",
@@ -16,14 +16,17 @@ export default function WhoWeAreSection() {
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
-        <div
-          className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[450px] sm:min-h-[400px]"
-          style={{
-            backgroundImage: `url(${backgroundimg.src})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
+       <div
+  className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[450px] sm:min-h-[400px]"
+  style={{
+    backgroundImage: `url(${backgroundimg.src})`,
+    backgroundSize: 'fill', // prevents zoom
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundColor: '#000', // optional: fill gaps with background color
+  }}
+>
+
           {/* Dark overlay with slight vignette */}
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,12,30,0.65)_0%,rgba(6,12,30,0.55)_35%,rgba(6,12,30,0.55)_65%,rgba(6,12,30,0.6)_100%)]" />
           <div className="absolute inset-0 [mask-image:radial-gradient(120%_100%_at_70%_50%,#000_60%,transparent_100%)] pointer-events-none" />
