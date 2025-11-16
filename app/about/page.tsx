@@ -146,22 +146,143 @@ const AboutAndTeam = () => {
       </section>
 
       {/* ================= How We Work ================= */}
-      <section className="bg-gray-50">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
-          <div className="mb-8 sm:mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
-              How We Work
-            </h2>
-            <p className="mt-2 sm:mt-3 text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl">
-              We follow a pragmatic product process that emphasizes discovery, rapid experimentation, and iterative delivery — so teams see value early and often.
-            </p>
+      {/* ================= How We Work ================= */}
+<section className="bg-gray-50">
+  <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10 py-10 md:py-14">
+    <div className="mb-8 sm:mb-10">
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
+        How We Work
+      </h2>
+      <p className="mt-2 sm:mt-3 text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl">
+        We follow a pragmatic product process that emphasizes discovery, rapid experimentation, and iterative delivery — so teams see value early and often.
+      </p>
+    </div>
+
+    {/* Process Steps */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      
+      {/* Requirement Gathering */}
+      <div className="flex gap-4 group">
+        <div className="flex flex-col items-center">
+          <div className="grid place-items-center size-10 sm:size-12 rounded-full bg-[#FFB800] text-neutral-900 shadow-lg flex-shrink-0">
+            <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-
-           
-
-
+          <div className="w-px h-8 bg-gray-300 mt-2" />
         </div>
-      </section>
+        <div className="flex-1 pb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-[#1445cc] mb-2">
+            Requirement Gathering
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            At the outset, we prioritize the collection of project requirements, resources, and vital information.
+          </p>
+        </div>
+      </div>
+
+      {/* Development */}
+      <div className="flex gap-4 group">
+        <div className="flex flex-col items-center">
+          <div className="grid place-items-center size-10 sm:size-12 rounded-full bg-[#FFB800] text-neutral-900 shadow-lg flex-shrink-0">
+            <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div className="w-px h-8 bg-gray-300 mt-2" />
+        </div>
+        <div className="flex-1 pb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-[#1445cc] mb-2">
+            Development
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            We kickstart mobile application, web, and blockchain development using the latest tools and technologies, ensuring a transparent process.
+          </p>
+        </div>
+      </div>
+
+      {/* UI/UX Design */}
+      <div className="flex gap-4 group">
+        <div className="flex flex-col items-center">
+          <div className="grid place-items-center size-10 sm:size-12 rounded-full bg-[#FFB800] text-neutral-900 shadow-lg flex-shrink-0">
+            <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div className="w-px h-8 bg-gray-300 mt-2" />
+        </div>
+        <div className="flex-1 pb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-[#1445cc] mb-2">
+            UI/UX Design
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            We employ cutting-edge design tools to craft captivating and user-friendly designs that leave a lasting impression.
+          </p>
+        </div>
+      </div>
+
+      {/* Quality Assurance */}
+      <div className="flex gap-4 group">
+        <div className="flex flex-col items-center">
+          <div className="grid place-items-center size-10 sm:size-12 rounded-full bg-[#FFB800] text-neutral-900 shadow-lg flex-shrink-0">
+            <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div className="w-px h-8 bg-gray-300 mt-2" />
+        </div>
+        <div className="flex-1 pb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-[#1445cc] mb-2">
+            Quality Assurance
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Our company prioritizes quality, delivering 100% bug-free applications without any compromise.
+          </p>
+        </div>
+      </div>
+
+      {/* Prototype */}
+      <div className="flex gap-4 group">
+        <div className="flex flex-col items-center">
+          <div className="grid place-items-center size-10 sm:size-12 rounded-full bg-[#FFB800] text-neutral-900 shadow-lg flex-shrink-0">
+            <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div className="w-px h-8 bg-gray-300 mt-2" />
+        </div>
+        <div className="flex-1 pb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-[#1445cc] mb-2">
+            Prototype
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Once the design phase is complete, you'll receive a prototype that will pave the way for the product's development process.
+          </p>
+        </div>
+      </div>
+
+      {/* Deployment */}
+      <div className="flex gap-4 group">
+        <div className="flex flex-col items-center">
+          <div className="grid place-items-center size-10 sm:size-12 rounded-full bg-[#FFB800] text-neutral-900 shadow-lg flex-shrink-0">
+            <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <div className="flex-1">
+          <h3 className="text-lg sm:text-xl font-bold text-[#1445cc] mb-2">
+            Deployment
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Following a thorough trial and adherence to all processes, your app is primed for launch on either the App Store or Play Store.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ================= Team Section ================= */}
       <section className="bg-gray-50">

@@ -58,18 +58,7 @@ export default function HeroSection() {
               We craft exceptional mobile and web applications that drive growth, enhance user experiences, and deliver measurable results for businesses across the globe.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
-              <button className="inline-flex items-center gap-3 rounded-full bg-[#FFB800] text-neutral-900 font-semibold px-6 py-3 shadow-lg hover:brightness-95 transition-all">
-                Start Your Project
-                <span className="grid place-items-center rounded-full bg-black/10 size-8">
-                  <ArrowRight className="size-4" />
-                </span>
-              </button>
-              <button className="inline-flex items-center gap-2 rounded-full border-2 border-neutral-300 text-neutral-700 font-semibold px-6 py-3 hover:bg-neutral-50 hover:border-neutral-400 transition-all">
-                View Our Work
-              </button>
-            </div>
+             
 
             {/* Tech Stack */}
             <div className="pt-4">

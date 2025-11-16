@@ -3,16 +3,23 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
-  Phone,
   Mail,
   Trophy,
   Users,
   MapPin,
   RefreshCw,
-  Upload,
   MessageCircle,
   ArrowRight,
 } from 'lucide-react';
+
+// Custom Viber icon component
+function ViberIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.176.584 4.214 1.6 5.97L.134 23.863a.5.5 0 0 0 .632.632l5.893-1.466A11.956 11.956 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.568 17.568c-.292.292-.76.292-1.052 0L12 13.052 7.484 17.568c-.292.292-.76.292-1.052 0-.292-.292-.292-.76 0-1.052L10.948 12 6.432 7.484c-.292-.292-.292-.76 0-1.052.292-.292.76-.292 1.052 0L12 10.948l4.516-4.516c.292-.292.76-.292 1.052 0 .292.292.292.76 0 1.052L13.052 12l4.516 4.516c.292.292.292.76 0 1.052z"/>
+    </svg>
+  );
+}
 
 export default function Consultation() {
   // Simple math captcha
@@ -23,12 +30,39 @@ export default function Consultation() {
   }, []);
   const [ans, setAns] = useState('');
 
+  // Form state
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    location: '',
+    service: '',
+    requirements: '',
+  });
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: validate Number(ans) === a + b
+
+    // Validate captcha
+    if (Number(ans) !== a + b) {
+      alert('Incorrect captcha answer. Please try again.');
+      return;
+    }
+
+    // Prepare form data for logging
+    const submissionData = {
+      ...formData,
+      fullPhone: `+977${formData.phone}`,
+      captchaAnswer: ans,
+      submittedAt: new Date().toISOString(),
+    };
+
+    console.log('Form Submitted:', submissionData);
+
+    alert('Form submitted successfully! Check console for details.');
   }
 
-  const phoneDisplay = '+977 9851195578';
+  const phoneNumber = '9779742555741';
 
   return (
     <section className="bg-gray-50">
@@ -36,27 +70,29 @@ export default function Consultation() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Left trust/contacts panel */}
           <aside className="lg:col-span-5">
-<div className="rounded-2xl bg-gradient-to-br from-[#FFFDF7] to-[#FFF3D9] p-5 sm:p-6 md:p-8 h-full shadow-lg">
+            <div className="rounded-2xl bg-gradient-to-br from-[#FFFDF7] to-[#FFF3D9] p-5 sm:p-6 md:p-8 h-full shadow-lg">
               {/* Quick contact links */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-semibold">
                 <Link
-                  href={`tel:${phoneDisplay.replace(/\s/g, '')}`}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 text-neutral-900 hover:text-neutral-700 transition"
-                >
-                  <Phone className="size-3.5 sm:size-4" />
-                  Book a Call
-                </Link>
-                <span className="h-4 w-px bg-neutral-300" />
-                <Link
-                  href={`https://wa.me/${phoneDisplay.replace(/[^\d]/g, '')}`}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 text-neutral-900 hover:text-neutral-700 transition"
+                  href={`https://wa.me/${phoneNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 text-neutral-900 hover:text-green-600 transition"
                 >
                   <MessageCircle className="size-3.5 sm:size-4" />
                   WhatsApp
                 </Link>
                 <span className="h-4 w-px bg-neutral-300" />
                 <Link
-                  href="mailto:info@esignature.com.np"
+                  href={`viber://chat?number=%2B${phoneNumber}`}
+                  className="inline-flex items-center gap-1.5 sm:gap-2 text-neutral-900 hover:text-purple-600 transition"
+                >
+                  <ViberIcon className="size-3.5 sm:size-4" />
+                  Viber
+                </Link>
+                <span className="h-4 w-px bg-neutral-300" />
+                <Link
+                  href="mailto:sphirontech@outlook.com"
                   className="inline-flex items-center gap-1.5 sm:gap-2 text-neutral-900 hover:text-neutral-700 transition"
                 >
                   <Mail className="size-3.5 sm:size-4" />
@@ -74,7 +110,7 @@ export default function Consultation() {
                     <Trophy className="size-4 sm:size-5 text-neutral-700" />
                   </div>
                   <div>
-                    <p className="font-semibold text-sm sm:text-base text-neutral-900">Experienced local team</p>
+                    <p className="font-semibold text-sm sm:text-base text-neutral-900">Experienced team</p>
                     <p className="mt-1 text-xs sm:text-sm text-neutral-700">We handle projects of any complexity.</p>
                   </div>
                 </li>
@@ -127,6 +163,8 @@ export default function Consultation() {
                     type="text"
                     placeholder="Enter your full name"
                     className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 placeholder:text-gray-400"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     required
                   />
                 </Fieldset>
@@ -136,6 +174,8 @@ export default function Consultation() {
                     type="email"
                     placeholder="your@email.com"
                     className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 placeholder:text-gray-400"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                   />
                 </Fieldset>
@@ -157,6 +197,8 @@ export default function Consultation() {
                       className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 placeholder:text-gray-400"
                       pattern="^(9[6-8]\d{8})$"
                       title="Enter a valid Nepal mobile number"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       required
                     />
                   </div>
@@ -167,6 +209,8 @@ export default function Consultation() {
                     type="text"
                     placeholder="e.g., Kathmandu, Bagmati"
                     className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 placeholder:text-gray-400"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                   />
                 </Fieldset>
               </div>
@@ -175,33 +219,31 @@ export default function Consultation() {
               <Fieldset label="Select Your Service">
                 <select
                   className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 appearance-none cursor-pointer"
-                  defaultValue=""
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   required
                 >
-                  <option value="" disabled>Choose a service</option>
-                  <option>Web Design and Development</option>
-                  <option>App Development</option>
-                  <option>Ecommerce Website</option>
-                  <option>Digital Marketing (SEO/SMO)</option>
-                  <option>Software Maintenance</option>
-                  <option>Staff Leasing / Dedicated Team</option>
+                  <option value="" disabled>
+                    Choose a service
+                  </option>
+                  <option value="web-design-development">Web Design and Development</option>
+                  <option value="app-development">App Development</option>
+                  <option value="ecommerce-website">Ecommerce Website</option>
+                  <option value="enterprise-software-development">Enterprise Software Development</option>
+                  <option value="software-maintenance">Software Maintenance</option>
+                  <option value="it-consultant">IT Consultant</option>
                 </select>
               </Fieldset>
 
-              {/* Requirements + upload */}
+              {/* Requirements */}
               <Fieldset label="Project Requirements">
-                <div>
-                  <textarea
-                    rows={5}
-                    placeholder="Tell us about your project..."
-                    className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 placeholder:text-gray-400 resize-y"
-                  />
-                  <label className="mt-3 sm:mt-4 inline-flex items-center gap-2 rounded-lg border-2 border-dashed border-gray-300 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-gray-700 cursor-pointer hover:border-gray-400 hover:bg-gray-50 transition">
-                    <Upload className="size-3.5 sm:size-4" />
-                    ATTACH FILES
-                    <input type="file" className="hidden" multiple />
-                  </label>
-                </div>
+                <textarea
+                  rows={5}
+                  placeholder="Tell us about your project..."
+                  className="w-full bg-transparent outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-neutral-900 placeholder:text-gray-400 resize-y"
+                  value={formData.requirements}
+                  onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
+                />
               </Fieldset>
 
               {/* Captcha + CTA */}

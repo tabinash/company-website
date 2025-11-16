@@ -4,6 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink, Code, Smartphone, Globe } from 'lucide-react';
 import { useState } from 'react';
+import hotelimage from "@/assets/hotel.png"
+import thakaliimage from "@/assets/thakali.png";
+import nepalitrails from "@/assets/nepalitrails.png";
+import carimage from "@/assets/car.png";
 
 // Demo projects data
 const demoProjects = [  {
@@ -11,7 +15,7 @@ const demoProjects = [  {
     title: 'Restaurant and Dining',
     category: 'Website',
     description: 'Elegant restaurant and dining website featuring delicious menus, reservation system, gallery, and a warm dining experience.',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80',
+    image:thakaliimage,
     demoUrl: 'https://sphiron-thakali.vercel.app/',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Restaurant UI'],
     icon: <Globe className="size-5" />
@@ -21,7 +25,7 @@ const demoProjects = [  {
     title: 'Travel Agency Website',
     category: 'Website',
     description: 'Modern travel agency website with tour packages, destination browsing, booking functionality, and customer testimonials.',
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop&q=80',
+    image: nepalitrails,
     demoUrl: 'https://sphiron-travel-agency.vercel.app/hompage1',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Responsive Design'],
     icon: <Globe className="size-5" />
@@ -31,7 +35,7 @@ const demoProjects = [  {
     title: 'Travel Agency Website v2',
     category: 'Website',
     description: 'Alternative design for travel agency platform featuring different layout, color scheme, and user experience approach.',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&auto=format&fit=crop&q=80',
+    image: nepalitrails,
     demoUrl: 'https://sphiron-travel-agency.vercel.app/',
     technologies: ['Next.js', 'React', 'Modern UI', 'Tour Booking'],
     icon: <Globe className="size-5" />
@@ -51,7 +55,7 @@ const demoProjects = [  {
     title: 'Automobile Showroom',
     category: 'Website',
     description: 'Professional automobile showroom website with vehicle listings, detailed specifications, image galleries, and contact forms.',
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&auto=format&fit=crop&q=80',
+    image:  carimage,
     demoUrl: 'https://sphiron-showroom.vercel.app/',
     technologies: ['Next.js', 'React', 'Image Gallery', 'Modern UI'],
     icon: <Code className="size-5" />
@@ -61,7 +65,7 @@ const demoProjects = [  {
     title: 'Hotel Booking Website',
     category: 'Web Application',
     description: 'Hotel booking platform with room listings, availability calendar, reservation system, and guest management features.',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&auto=format&fit=crop&q=80',
+    image: hotelimage,
     demoUrl: 'https://sphiron-hotel.vercel.app/',
     technologies: ['Next.js', 'React', 'Booking System', 'Tailwind CSS'],
     icon: <Globe className="size-5" />

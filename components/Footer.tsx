@@ -72,7 +72,7 @@ export default function Footer() {
                 <div className="grid place-items-center size-9 rounded-lg bg-white/10 group-hover:bg-white/20 transition flex-shrink-0">
                   <Phone className="size-4" />
                 </div>
-                <span>+977 9851195578</span>
+                <span>+977 9742555741</span>
               </a>
               <a 
                 href="mailto:info@esignature.com.np" 
@@ -81,7 +81,7 @@ export default function Footer() {
                 <div className="grid place-items-center size-9 rounded-lg bg-white/10 group-hover:bg-white/20 transition flex-shrink-0">
                   <Mail className="size-4" />
                 </div>
-                <span>info@esignature.com.np</span>
+                <span>sphirontech@outlook.com</span>
               </a>
               <div className="flex items-start gap-3 text-sm text-white/80">
                 <div className="grid place-items-center size-9 rounded-lg bg-white/10 flex-shrink-0">
@@ -92,26 +92,68 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Middle - Services */}
-          <div className="lg:col-span-5">
-            <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
-              Our Services
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {services.map((service) => (
-                <Link
-                  key={service.label}
-                  href={service.href}
-                  className="text-sm text-white/70 hover:text-white transition flex items-start gap-2"
-                >
-                  <span className="mt-1.5 inline-block size-1.5 rounded-full bg-[#FFB800] flex-shrink-0" />
-                  {service.label}
-                </Link>
-              ))}
+          {/* Services & Company Column */}
+          <div className="lg:col-span-3">
+            {/* Services */}
+            <div className="mb-8">
+              <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
+                Our Services
+              </h3>
+              <ul className="space-y-2.5">
+                {services.map((service) => (
+                  <li key={service.label}>
+                    <Link
+                      href={service.href}
+                      className="text-sm text-white/70 hover:text-white transition flex items-start gap-2"
+                    >
+                      <span className="mt-1.5 inline-block size-1.5 rounded-full bg-[#FFB800] flex-shrink-0" />
+                      {service.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
+                Company
+              </h3>
+              <ul className="space-y-2.5">
+                {quickLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 hover:text-white transition"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* Right - Newsletter & Social */}
+          {/* Resources Column */}
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
+              Resources
+            </h3>
+            <ul className="space-y-2.5">
+              {quickLinks.resources.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/70 hover:text-white transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter & Social */}
           <div className="lg:col-span-3">
             {/* Newsletter */}
             <div className="mb-8">
@@ -134,7 +176,7 @@ export default function Footer() {
             </div>
 
             {/* Social Links */}
-            <div>
+            {/* <div>
               <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-white/90">
                 Follow Us
               </h3>
@@ -152,64 +194,7 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Links Section */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10 pb-10 border-b border-white/10">
-          <div>
-            <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
-              Company
-            </h3>
-            <ul className="space-y-2.5">
-              {quickLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/70 hover:text-white transition"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
-              Resources
-            </h3>
-            <ul className="space-y-2.5">
-              {quickLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/70 hover:text-white transition"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-white/90">
-              Services
-            </h3>
-            <ul className="space-y-2.5">
-              {services.slice(0, 4).map((service) => (
-                <li key={service.label}>
-                  <Link
-                    href={service.href}
-                    className="text-sm text-white/70 hover:text-white transition"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            </div> */}
           </div>
         </div>
 
@@ -223,9 +208,9 @@ export default function Footer() {
             <Link href="/contact" className="hover:text-white transition">
               Contact
             </Link>
-            <Link href="/careers" className="hover:text-white transition">
+            {/* <Link href="/careers" className="hover:text-white transition">
               Careers
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
