@@ -7,6 +7,7 @@ import poultryImage from "@/assets/poultry.png"
 import dairyimage from "@/assets/dairy.png"
 import medtrakerimage from "@/assets/medtracker.png"
 import digitalImage from "@/assets/digital.jpg"
+import ieltsimage from "@/assets/ielts.png"
 import { StaticImageData } from 'next/image';
 
 interface PortfolioItem {
@@ -21,7 +22,7 @@ interface PortfolioItem {
 }
 
 const portfolioData: PortfolioItem[] = [
-    {
+       {
         id: 1,
         title: "Benchmark",
         company: "Digital Education Platform for Publication House",
@@ -30,15 +31,26 @@ const portfolioData: PortfolioItem[] = [
         color: "bg-blue-600",
         lightColor: "bg-blue-100 text-blue-600"
     },
-    {
+        {
         id: 2,
         title: "IELTS Exam Prep",
         company: "Web-based Computer IELTS Test Practice",
         description: "A comprehensive, web-based platform for digiting the IELTS examination practice. It offers users a realistic test environment to build confidence and skills.",
-        image: organicbazarImage,
+        image: ieltsimage,
         color: "bg-purple-600",
         lightColor: "bg-purple-100 text-purple-600"
     },
+ 
+        {
+        id: 5,
+        title: "DG Click",
+        company: "Custom Design & Printing E-commerce",
+        description: "An innovative e-commerce app for a printing design studio, offering a vast range of customizable products—from Apparel (T-Shirts, Hoodies) and Business Materials (Banners, Visiting Cards) to Accessories (Mugs, Keychains) and Home & Living items (Canvas Prints, Frames).",
+        image: dgclickimage, // Correct image variable
+        color: "bg-red-600", // The circle background color
+        lightColor: "bg-amber-100 text-amber-600" 
+    },
+
     {
         id: 3,
         title: "Poultry",
@@ -57,15 +69,7 @@ const portfolioData: PortfolioItem[] = [
         color: "bg-yellow-600",
         lightColor: "bg-yellow-100 text-yellow-600"
     },
-    {
-        id: 5,
-        title: "DG Click",
-        company: "Custom Design & Printing E-commerce",
-        description: "An innovative e-commerce app for a printing design studio, offering a vast range of customizable products—from Apparel (T-Shirts, Hoodies) and Business Materials (Banners, Visiting Cards) to Accessories (Mugs, Keychains) and Home & Living items (Canvas Prints, Frames).",
-        image: dgclickimage, // Correct image variable
-        color: "bg-red-600", // The circle background color
-        lightColor: "bg-amber-100 text-amber-600" 
-    },
+
     {
         id: 6,
         title: "Digital Dairy",
